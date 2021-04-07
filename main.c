@@ -1,6 +1,6 @@
 #include <stdio.h>
 
 int main() {
-    printf("Ezt nezd meg\n");
+    printf("Tivadar: \"kicsi  a faszom\"\n");
     return 0;
 }
