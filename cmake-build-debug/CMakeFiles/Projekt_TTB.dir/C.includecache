@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+E:/Adatszerkezetek/Projekt_TTB/functions.c
+functions.h
+E:/Adatszerkezetek/Projekt_TTB/functions.h
+
+E:/Adatszerkezetek/Projekt_TTB/functions.h
+
+E:/Adatszerkezetek/Projekt_TTB/main.c
+stdio.h
+-
+
