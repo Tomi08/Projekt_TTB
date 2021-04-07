@@ -3,3 +3,7 @@
 //
 
 #include "functions.h"
+
+void beolvas(ALMA *zene){
+
+}
