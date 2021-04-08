@@ -64,7 +64,7 @@ void read(DATA *music) {
         char *token;
         int lenght=0;
         token = strtok(str, s);
-        create(strlen(str), &music->artist_name);
+        create(strlen(str), music->artist_name);
         music->artist_name = str;
         puts(music->artist_name);
         lenght += strlen(str);
