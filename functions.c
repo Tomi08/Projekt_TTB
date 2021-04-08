@@ -12,6 +12,9 @@ DATA *create(int dimension) {
 
 DATA *readIn(const char *fname, int *dimension) {
     FILE *fptr = fopen(fname, "r");
+    if (fptr == NULL) {
+       perror("Error opening file");
+    }
     fscanf(fptr, "%i\n", dimension);
     //DATA *myMusic = (DATA*)malloc((*dimension) * sizeof(DATA));
     DATA *myMusic = create(*dimension);
@@ -56,6 +59,7 @@ DATA *readIn(const char *fname, int *dimension) {
 
 void writeOut(DATA *myMusic, int dimension) {
     for(int i = 0; i < dimension; ++i) {
+        printf("[%i] ",myMusic[i].ID);
         printf("%s ", myMusic[i].artist_name);
         printf("%s ", myMusic[i].track_name);
         printf("%s ", myMusic[i].album_name);
@@ -67,9 +71,27 @@ void writeOut(DATA *myMusic, int dimension) {
         printf(" [%d", myMusic[i].realase_date.year);
         printf("-%d", myMusic[i].realase_date.month);
         printf("-%d]\n", myMusic[i].realase_date.day);
+
     }
 }
 
+void playRandom( DATA *myMusic ,int lower,int upper) {
+    srand(time(0));
+    int a;
+    a=(rand() % (upper-lower+1))+lower;
+    printf("[%i] ",myMusic[a].ID);
+    printf("%s ", myMusic[a].artist_name);
+    printf("%s ", myMusic[a].track_name);
+    printf("%s ", myMusic[a].album_name);
+
+    printf(" [%d", myMusic[a].length.hour);
+    printf(":%d", myMusic[a].length.minute);
+    printf(":%d] ", myMusic[a].length.sec);
+
+    printf(" [%d", myMusic[a].realase_date.year);
+    printf("-%d", myMusic[a].realase_date.month);
+    printf("-%d]\n", myMusic[a].realase_date.day);
+}
 
 /*
 //void beolvas(ADAT *zene) {

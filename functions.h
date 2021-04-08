@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 typedef struct TIME {
     int hour;
@@ -40,5 +41,6 @@ typedef struct DATA {
 DATA *create(int capacity);
 DATA *readIn(const char *fname, int *dimension);
 void writeOut(DATA *myMusic, int dimension);
+void playRandom(DATA *myMusic,int lower,int upper);
 
 #endif //PROJEKT_TTB_FUNCTIONS_H
