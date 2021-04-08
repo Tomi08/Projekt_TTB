@@ -54,9 +54,9 @@ void read(DATA *music) {
     }
 
     char buffer[1000];
-    int nr_of_lines =0;
-    while( fgets(buffer, sizeof buffer, fin) && nr_of_lines < 4){
-        printf("Track NR%i:\n", nr_of_lines+1);
+    int nr_of_line =0;
+    while( fgets(buffer, sizeof buffer, fin) ){
+        printf("Track NR%i:\n", nr_of_line+1);
 
         char str[1000];
         strcpy(str, buffer);
@@ -64,9 +64,9 @@ void read(DATA *music) {
         char *token;
         int lenght=0;
         token = strtok(str, s);
-        create(strlen(str), &music[nr_of_lines].artist_name);
-        music[nr_of_lines].artist_name = str;
-        puts(music[nr_of_lines].artist_name);
+        create(strlen(str), &music->artist_name);
+        music->artist_name = str;
+        puts(music->artist_name);
         lenght += strlen(str);
 
         strcpy(str, buffer+lenght+2);
@@ -123,7 +123,7 @@ void read(DATA *music) {
 
         printf("\n");
 
-        nr_of_lines++;
+        nr_of_line++;
     }
 
 
