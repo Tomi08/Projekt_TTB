@@ -4,7 +4,8 @@
 
 int main() {
     DATA *music;
-    beolvas(&music);
-    puts(music->track_name);
+    read(&music);
+    print(&music);
+
     return 0;
 }

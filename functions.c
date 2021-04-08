@@ -41,8 +41,12 @@ void create(int lenght, char *data){
     data = (char *) malloc(lenght * sizeof(char));
     }
 
+void print(DATA *music){
 
-void beolvas(DATA *music) {
+}
+
+
+void read(DATA *music) {
     FILE *fin;
     fin = fopen("input.csv", "r");
     if (fin == NULL) {
@@ -50,9 +54,9 @@ void beolvas(DATA *music) {
     }
 
     char buffer[1000];
-    int ok =0;
-    while( fgets(buffer, sizeof buffer, fin) && ok < 4){
-        printf("Track NR%i:\n", ok+1);
+    int nr_of_lines =0;
+    while( fgets(buffer, sizeof buffer, fin) && nr_of_lines < 4){
+        printf("Track NR%i:\n", nr_of_lines+1);
 
         char str[1000];
         strcpy(str, buffer);
@@ -60,9 +64,9 @@ void beolvas(DATA *music) {
         char *token;
         int lenght=0;
         token = strtok(str, s);
-        create(strlen(str), &music->artist_name);
-        music->artist_name = str;
-        puts(music->artist_name);
+        create(strlen(str), &music[nr_of_lines].artist_name);
+        music[nr_of_lines].artist_name = str;
+        puts(music[nr_of_lines].artist_name);
         lenght += strlen(str);
 
         strcpy(str, buffer+lenght+2);
@@ -119,10 +123,11 @@ void beolvas(DATA *music) {
 
         printf("\n");
 
-        ok++;
+        nr_of_lines++;
     }
 
 
 }
+
 
 

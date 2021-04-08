@@ -32,8 +32,9 @@ typedef struct {
 
 }DATA;
 
-void beolvas(DATA *music);
+void read(DATA *music);
 void create(int lenght, char *data);
+void print(DATA *music);
 
 
 
