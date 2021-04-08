@@ -7,36 +7,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-//void beolvas(ADAT *zene) {
-//    FILE *fin;
-//    fin = fopen("bemenet.txt", "w+");
-//    fputs("Love Harder; Amber Van Day , Oblivion (feat. Amber Van Day) , Oblivion (feat. Amber Van Day) , 00:03:12 , 2019-07-26",
-//          fin);
-//    fclose(fin);
-//    fin = fopen("bemenet.txt", "r");
-//    if (fin == NULL) {
-//        perror("Error opening file");
-//    }
-//    char str1[200], str2[200];
-//    const char s[2] = ";";
-//    char *token;
-//    if (fgets(str1, sizeof str1, fin) != NULL) {
-//        strcpy(str2, str1);
-//        token = strtok(str1, s);
-//        puts(token);
-//        strcpy(s, ",");
-//        strcpy(str2, str2 + strlen(str1 - 2));
-//        token = strtok(str2, s);
-//        puts(token);
-//    }
-//
-//    create(strlen(str1), &zene->cime);
-//    zene->cime = str1;
-//    puts(zene->cime);
-//
-//}
-
-
 void create(int lenght, char *data){
     data = (char *) malloc(lenght * sizeof(char));
     }
