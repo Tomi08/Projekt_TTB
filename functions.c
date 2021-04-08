@@ -3,10 +3,75 @@
 //
 
 #include "functions.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
+DATA *create(int dimension) {
+    DATA *myMusic = (DATA*)malloc(dimension * sizeof(DATA));
+
+    return myMusic;
+}
+
+DATA *readIn(const char *fname, int *dimension) {
+    FILE *fptr = fopen(fname, "r");
+    fscanf(fptr, "%i\n", dimension);
+    //DATA *myMusic = (DATA*)malloc((*dimension) * sizeof(DATA));
+    DATA *myMusic = create(*dimension);
+    char *token;
+    char buffer[500];
+    for(int i = 0; i < *dimension; ++i) {
+        fscanf(fptr, "%[^\n]\n", buffer);
+        //printf("%s\n", buffer);
+        myMusic[i].ID = i;
+
+        token = strtok(buffer, ",");
+        myMusic[i].artist_name = (char*) malloc((strlen(token)+1)*sizeof(char));
+        strcpy(myMusic[i].artist_name,token);
+        //printf("token~~~%i~~~~~\n", strlen(token));
+        //printf("~~~%s~~~~~\n", myMusic[i].artist_name);
+        token = strtok(NULL, ",");
+        myMusic[i].track_name = (char*) malloc((strlen(token)+1)*sizeof(char));
+        strcpy(myMusic[i].track_name,token);
+
+        token = strtok(NULL, ",");
+        myMusic[i].album_name = (char*) malloc((strlen(token)+1)*sizeof(char));
+        strcpy(myMusic[i].album_name,token);
+
+        token = strtok(NULL, ":");
+        sscanf(token, "%i", &myMusic[i].length.hour);
+        token = strtok(NULL, ":");
+        sscanf(token, "%i", &myMusic[i].length.minute);
+        token = strtok(NULL, ",");
+        sscanf(token, "%i", &myMusic[i].length.sec);
+
+        token = strtok(NULL, "-");
+        sscanf(token, "%d", &myMusic[i].realase_date.year);
+        token = strtok(NULL, "-");
+        sscanf(token, "%d", &myMusic[i].realase_date.month);
+        token = strtok(NULL, "");
+        sscanf(token, "%d", &myMusic[i].realase_date.day);
+        //fscanf(fptr, "\n");
+    }
+
+    return myMusic;
+}
+
+void writeOut(DATA *myMusic, int dimension) {
+    for(int i = 0; i < dimension; ++i) {
+        printf("%s ", myMusic[i].artist_name);
+        printf("%s ", myMusic[i].track_name);
+        printf("%s ", myMusic[i].album_name);
+
+        printf(" [%d", myMusic[i].length.hour);
+        printf(":%d", myMusic[i].length.minute);
+        printf(":%d] ", myMusic[i].length.sec);
+
+        printf(" [%d", myMusic[i].realase_date.year);
+        printf("-%d", myMusic[i].realase_date.month);
+        printf("-%d]\n", myMusic[i].realase_date.day);
+    }
+}
+
+
+/*
 //void beolvas(ADAT *zene) {
 //    FILE *fin;
 //    fin = fopen("bemenet.txt", "w+");
@@ -37,13 +102,13 @@
 //}
 
 
-void create(int lenght, char *data){
+void create(int lenght, char *data) {
     data = (char *) malloc(lenght * sizeof(char));
     }
 
-void print(DATA *music){
-
-}
+//void print(DATA *music){
+//
+//}
 
 
 void read(DATA *music) {
@@ -111,11 +176,11 @@ void read(DATA *music) {
         sscanf(time, "%i", &number);
         music->realase_date.year=number;
 
-        strcpy(time,token+3);
+        strcpy(time,token+5);
         sscanf(time, "%i", &number);
         music->realase_date.month=number;
 
-        strcpy(time,token+6);
+        strcpy(time,token+8);
         sscanf(time, "%i", &number);
         music->realase_date.day=number;
 
@@ -128,6 +193,7 @@ void read(DATA *music) {
 
 
 }
+*/
 
 
 

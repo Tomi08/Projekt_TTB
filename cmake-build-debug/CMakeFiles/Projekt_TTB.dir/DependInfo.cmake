@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "D:/Egyetem/Projekt_TTB/functions.c" "D:/Egyetem/Projekt_TTB/cmake-build-debug/CMakeFiles/Projekt_TTB.dir/functions.c.obj"
-  "D:/Egyetem/Projekt_TTB/main.c" "D:/Egyetem/Projekt_TTB/cmake-build-debug/CMakeFiles/Projekt_TTB.dir/main.c.obj"
+  "D:/Egyetem/Adatszerkezetek/Projekt_TTB/functions.c" "D:/Egyetem/Adatszerkezetek/Projekt_TTB/cmake-build-debug/CMakeFiles/Projekt_TTB.dir/functions.c.obj"
+  "D:/Egyetem/Adatszerkezetek/Projekt_TTB/main.c" "D:/Egyetem/Adatszerkezetek/Projekt_TTB/cmake-build-debug/CMakeFiles/Projekt_TTB.dir/main.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

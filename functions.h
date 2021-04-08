@@ -4,21 +4,28 @@
 
 #ifndef PROJEKT_TTB_FUNCTIONS_H
 #define PROJEKT_TTB_FUNCTIONS_H
-typedef struct {
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct TIME {
     int hour;
     int minute;
     int sec;
 }TIME;
-typedef struct {
+
+typedef struct DATE {
     int year;
     int month;
     int day;
 }DATE;
-typedef struct {
+
+typedef struct DATA {
     char *artist_name;
     char *track_name;
     char *album_name;
-    TIME lenght;
+    TIME length;
     DATE realase_date;
 
     int views;
@@ -28,15 +35,10 @@ typedef struct {
     char *remixes;
     char *mood;
     char *style;
-
-
 }DATA;
 
-void read(DATA *music);
-void create(int lenght, char *data);
-void print(DATA *music);
-
-
-
+DATA *create(int capacity);
+DATA *readIn(const char *fname, int *dimension);
+void writeOut(DATA *myMusic, int dimension);
 
 #endif //PROJEKT_TTB_FUNCTIONS_H

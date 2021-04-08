@@ -1,12 +1,11 @@
-#include <stdio.h>
 #include "functions.h"
-#include <stdlib.h>
 
 int main() {
-    DATA *music;
-    music = (DATA*)malloc(100*sizeof(DATA));
-    read(&music);
-    print(music);
+
+    int n;
+    DATA *myMusic = readIn("input.csv", &n);
+    //printf("-----%s-----", myMusic[0].artist_name);
+    writeOut(myMusic,n);
 
     return 0;
 }
