@@ -1,6 +1,10 @@
 #include <stdio.h>
+#include "functions.h"
+
 
 int main() {
-    printf("Tivadar: \"kicsi  a faszom :(\"\n");
+    DATA *music;
+    beolvas(&music);
+    puts(music->track_name);
     return 0;
 }

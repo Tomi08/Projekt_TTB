@@ -6,13 +6,11 @@
 
 #IncludeRegexTransform: 
 
-D:/Egyetem/Projekt_TTB/functions.c
-functions.h
-D:/Egyetem/Projekt_TTB/functions.h
-
 D:/Egyetem/Projekt_TTB/functions.h
 
 D:/Egyetem/Projekt_TTB/main.c
 stdio.h
 -
+functions.h
+D:/Egyetem/Projekt_TTB/functions.h
 

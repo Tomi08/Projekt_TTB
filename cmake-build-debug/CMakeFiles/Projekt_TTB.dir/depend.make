@@ -4,5 +4,6 @@
 CMakeFiles/Projekt_TTB.dir/functions.c.obj: ../functions.c
 CMakeFiles/Projekt_TTB.dir/functions.c.obj: ../functions.h
 
+CMakeFiles/Projekt_TTB.dir/main.c.obj: ../functions.h
 CMakeFiles/Projekt_TTB.dir/main.c.obj: ../main.c
 

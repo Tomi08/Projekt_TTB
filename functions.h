@@ -5,28 +5,37 @@
 #ifndef PROJEKT_TTB_FUNCTIONS_H
 #define PROJEKT_TTB_FUNCTIONS_H
 typedef struct {
-    int ora;
-    int perc;
-    int masodperc;
-}IDOTARTAM;
+    int hour;
+    int minute;
+    int sec;
+}TIME;
 typedef struct {
-    int ev;
-    int honap;
-    int nap;
-}KIADAS;
+    int year;
+    int month;
+    int day;
+}DATE;
 typedef struct {
-    IDOTARTAM lejatszasi_ido;
-    char *cime;
-    KIADAS megjelenes;
-    char *album;
-    char *eloado_neve;
-    char *feldolgozasok;
-    char *mood;
-    char *stilus;
-    int megtekintes;
-    int kedvelesek;
+    char *artist_name;
+    char *track_name;
+    char *album_name;
+    TIME lenght;
+    DATE realase_date;
+
+    int views;
+    int likes;
     int ID;
 
-}ALMA;
-void beolvas(ALMA *zene);
+    char *remixes;
+    char *mood;
+    char *style;
+
+
+}DATA;
+
+void beolvas(DATA *music);
+void create(int lenght, char *data);
+
+
+
+
 #endif //PROJEKT_TTB_FUNCTIONS_H
