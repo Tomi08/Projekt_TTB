@@ -48,6 +48,6 @@ void playRandom(DATA *myMusic, int lower, int upper);
 void generate(DATA *myMusic, int dimension);
 void remix(DATA *myMusic, int dimension);
 void recommended(DATA *myMusic, int dimension);
-int int_cmp(const void*,const void *);
+int cmp(const void*,const void *);
 
 #endif //PROJEKT_TTB_FUNCTIONS_H

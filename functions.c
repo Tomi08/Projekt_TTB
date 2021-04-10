@@ -164,23 +164,57 @@ void remix(DATA *myMusic, int dimension) {
 
 }
 void recommended(DATA *myMusic, int dimension){
+    qsort(myMusic,dimension,sizeof(DATA),cmp);
+    printf("\nToday's best offer\n");
+    printf("[%i] ", myMusic[0].ID);
+    printf("%s ", myMusic[0].artist_name);
+    printf("%s ", myMusic[0].track_name);
+    printf("%s ", myMusic[0].album_name);
 
+    printf(" [%d", myMusic[0].length.hour);
+    printf(":%d", myMusic[0].length.minute);
+    printf(":%d] ", myMusic[0].length.sec);
+
+    printf(" [%d", myMusic[0].realase_date.year);
+    printf("-%d", myMusic[0].realase_date.month);
+    printf("-%d]\n", myMusic[0].realase_date.day);
+    printf("\tViews %d", myMusic[0].views);
+    printf("\tLikes %d\n", myMusic[0].likes);
+
+//    for(int i=0;i<dimension;++i)
+//    {
+//        printf("[%i] ", myMusic[i].ID);
+//        printf("%s ", myMusic[i].artist_name);
+//        printf("%s ", myMusic[i].track_name);
+//        printf("%s ", myMusic[i].album_name);
+//
+//        printf(" [%d", myMusic[i].length.hour);
+//        printf(":%d", myMusic[i].length.minute);
+//        printf(":%d] ", myMusic[i].length.sec);
+//
+//        printf(" [%d", myMusic[i].realase_date.year);
+//        printf("-%d", myMusic[i].realase_date.month);
+//        printf("-%d]\n\n", myMusic[i].realase_date.day);
+//        printf("\tViews %d", myMusic[i].views);
+//        printf("\tLikes %d\n", myMusic[i].likes);
+//
+//    }
 }
-int int_cmp(const void*p1,const void *p2)
+int cmp(const void *p1,const void *p2)
 {
-    int *q1=(int*)p1;
-    int *q2=(int*)p2;
-    if(*q1<*q2)
+    const DATA *q1=(const DATA *)p1;
+    const DATA *q2=(const DATA *)p2;
+    if(q2->likes<q1->likes)
     {
         return -1;
     }
-    else if(*q1>*q2)
+    else if(q1->likes<q2->likes)
     {
         return 1;
     }
     else
     {
-        return 0;
+        return (q1->views<q2->views)-(q2->views<q1->views);
     }
 }
 
