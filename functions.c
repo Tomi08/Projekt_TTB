@@ -5,7 +5,7 @@
 #include "functions.h"
 
 DATA *create(int dimension) {
-    DATA *myMusic = (DATA*)malloc(dimension * sizeof(DATA));
+    DATA *myMusic = (DATA *) malloc(dimension * sizeof(DATA));
 
     return myMusic;
 }
@@ -13,30 +13,31 @@ DATA *create(int dimension) {
 DATA *readIn(const char *fname, int *dimension) {
     FILE *fptr = fopen(fname, "r");
     if (fptr == NULL) {
-       perror("Error opening file");
+        perror("Error opening file");
     }
     fscanf(fptr, "%i\n", dimension);
     //DATA *myMusic = (DATA*)malloc((*dimension) * sizeof(DATA));
     DATA *myMusic = create(*dimension);
     char *token;
     char buffer[500];
-    for(int i = 0; i < *dimension; ++i) {
+    for (int i = 0; i < *dimension; ++i) {
         fscanf(fptr, "%[^\n]\n", buffer);
         //printf("%s\n", buffer);
         myMusic[i].ID = i;
 
         token = strtok(buffer, ",");
-        myMusic[i].artist_name = (char*) malloc((strlen(token)+1)*sizeof(char));
-        strcpy(myMusic[i].artist_name,token);
+        myMusic[i].artist_name = (char *) malloc((strlen(token) + 1) * sizeof(char));
+        strcpy(myMusic[i].artist_name, token);
         //printf("token~~~%i~~~~~\n", strlen(token));
         //printf("~~~%s~~~~~\n", myMusic[i].artist_name);
         token = strtok(NULL, ",");
-        myMusic[i].track_name = (char*) malloc((strlen(token)+1)*sizeof(char));
-        strcpy(myMusic[i].track_name,token);
-
+        myMusic[i].track_name = (char *) malloc((strlen(token) + 1) * sizeof(char));
+        strcpy(myMusic[i].track_name, token);
         token = strtok(NULL, ",");
-        myMusic[i].album_name = (char*) malloc((strlen(token)+1)*sizeof(char));
-        strcpy(myMusic[i].album_name,token);
+        myMusic[i].album_name = (char *) malloc((strlen(token) + 1) * sizeof(char));
+        strcpy(myMusic[i].album_name, token);
+        myMusic[i].mood = (char *) malloc(*dimension * sizeof(char));
+        myMusic[i].style = (char *) malloc(*dimension * sizeof(char));
 
         token = strtok(NULL, ":");
         sscanf(token, "%i", &myMusic[i].length.hour);
@@ -54,12 +55,14 @@ DATA *readIn(const char *fname, int *dimension) {
         //fscanf(fptr, "\n");
     }
 
+    generate(myMusic, *dimension);
+
     return myMusic;
 }
 
 void writeOut(DATA *myMusic, int dimension) {
-    for(int i = 0; i < dimension; ++i) {
-        printf("[%i] ",myMusic[i].ID);
+    for (int i = 0; i < dimension; ++i) {
+        printf("[%i] ", myMusic[i].ID);
         printf("%s ", myMusic[i].artist_name);
         printf("%s ", myMusic[i].track_name);
         printf("%s ", myMusic[i].album_name);
@@ -71,15 +74,20 @@ void writeOut(DATA *myMusic, int dimension) {
         printf(" [%d", myMusic[i].realase_date.year);
         printf("-%d", myMusic[i].realase_date.month);
         printf("-%d]\n", myMusic[i].realase_date.day);
+        printf("\tViews %d", myMusic[i].views);
+        printf("\tLikes %d", myMusic[i].likes);
+        printf("\tDislikes %d ", myMusic[i].dislikes);
+        printf("\tMood %s ", myMusic[i].mood);
+        printf("\tStyle %s \n", myMusic[i].style);
 
     }
 }
 
-void playRandom( DATA *myMusic ,int lower,int upper) {
+void playRandom(DATA *myMusic, int lower, int upper) {
     srand(time(0));
     int a;
-    a=(rand() % (upper-lower+1))+lower;
-    printf("[%i] ",myMusic[a].ID);
+    a = (rand() % (upper - lower + 1)) + lower;
+    printf("[%i] ", myMusic[a].ID);
     printf("%s ", myMusic[a].artist_name);
     printf("%s ", myMusic[a].track_name);
     printf("%s ", myMusic[a].album_name);
@@ -90,7 +98,70 @@ void playRandom( DATA *myMusic ,int lower,int upper) {
 
     printf(" [%d", myMusic[a].realase_date.year);
     printf("-%d", myMusic[a].realase_date.month);
-    printf("-%d]\n", myMusic[a].realase_date.day);
+    printf("-%d]\n\n", myMusic[a].realase_date.day);
+}
+
+void generate(DATA *myMusic, int dimension) {
+    srand(time(0));
+    int mood, style;
+
+    for (int i = 0; i < dimension; ++i) {
+        myMusic[i].views = (rand() % (10000000 - 0 + 1)) + 0;
+        myMusic[i].likes = (rand() % (myMusic[i].views - 0 + 1) + 0);
+        myMusic[i].dislikes = (rand() % ((myMusic[i].views - myMusic[i].likes) - 0 + 1) + 0);
+//    if (strstr(myMusic[i].track_name, needle)!=0) {
+//        int j = 0;
+//        //snprintf(myMusic[i].remixes, sizeof(myMusic[i].remixes), "%s %s %s ", myMusic[i].artist_name,myMusic[i].track_name, myMusic[i].album_name);
+//        strcat(myMusic[i].remixes,myMusic[i].artist_name);
+//        strcat(myMusic[i].remixes,myMusic[i].track_name);
+//        strcat(myMusic[i].remixes,myMusic[i].album_name);
+//        ++j;
+//    }
+        mood = (rand() % (5 - 1 + 1)) + 1;
+        if (mood == 1) strcpy(myMusic[i].mood, "Happy");
+        else if (mood == 2) strcpy(myMusic[i].mood, "Sad");
+        else if (mood == 3) myMusic[i].mood = "Spicy";
+        else if (mood == 4) myMusic[i].mood = "Energetic";
+        else if (mood == 5) myMusic[i].mood = "Chill";
+        style = (rand() % (5 - 1 + 1)) + 1;
+        if (style == 1) strcpy(myMusic[i].style, "Rock");
+        else if (style == 2) strcpy(myMusic[i].style, "Pop");
+        else if (style == 3) myMusic[i].style = "Hip Hop";
+        else if (style == 4) myMusic[i].style = "Techno";
+        else if (style == 5) myMusic[i].style = "Clasical music";
+
+
+    }
+
+}
+
+void remix(DATA *myMusic, int dimension) {
+    //int j = 0;
+    char remix[100];
+    char needle[10] = "Remix";
+    printf("\n\tRemixes: \n");
+    for (int i = 0; i < dimension; ++i) {
+        if (strstr(myMusic[i].track_name, needle) != 0) {
+            //snprintf(myMusic[i].remixes, sizeof(myMusic[i].remixes), "%s %s %s ", myMusic[i].artist_name,myMusic[i].track_name, myMusic[i].album_name);
+//            strncat(remix, myMusic[i].artist_name,sizeof(remix));
+//            strncat(remix, myMusic[i].track_name,sizeof(remix));
+//            strncat(remix, myMusic[i].album_name,sizeof(remix));
+            printf("[%i] ", myMusic[i].ID);
+            printf("%s ", myMusic[i].artist_name);
+            printf("%s ", myMusic[i].track_name);
+            printf("%s ", myMusic[i].album_name);
+
+            printf(" [%d", myMusic[i].length.hour);
+            printf(":%d", myMusic[i].length.minute);
+            printf(":%d] ", myMusic[i].length.sec);
+
+            printf(" [%d", myMusic[i].realase_date.year);
+            printf("-%d", myMusic[i].realase_date.month);
+            printf("-%d]\n\n", myMusic[i].realase_date.day);
+
+        }
+    }
+
 }
 
 /*

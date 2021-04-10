@@ -14,13 +14,13 @@ typedef struct TIME {
     int hour;
     int minute;
     int sec;
-}TIME;
+} TIME;
 
 typedef struct DATE {
     int year;
     int month;
     int day;
-}DATE;
+} DATE;
 
 typedef struct DATA {
     char *artist_name;
@@ -31,16 +31,21 @@ typedef struct DATA {
 
     int views;
     int likes;
+    int dislikes;
     int ID;
 
-    char *remixes;
     char *mood;
     char *style;
-}DATA;
+} DATA;
 
 DATA *create(int capacity);
+
 DATA *readIn(const char *fname, int *dimension);
+
 void writeOut(DATA *myMusic, int dimension);
-void playRandom(DATA *myMusic,int lower,int upper);
+
+void playRandom(DATA *myMusic, int lower, int upper);
+void generate(DATA *myMusic, int dimension);
+void remix(DATA *myMusic, int dimension);
 
 #endif //PROJEKT_TTB_FUNCTIONS_H
