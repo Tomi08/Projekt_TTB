@@ -6,8 +6,9 @@ int main() {
     DATA *myMusic = readIn("input.csv", &n);
     //printf("-----%s-----", myMusic[0].artist_name);
     writeOut(myMusic, n);
-    //playRandom(myMusic, 0, 99);
+    playRandom(myMusic, 0, 99);
     remix(myMusic,n);
+    recommended(myMusic,n);
 
 
     return 0;

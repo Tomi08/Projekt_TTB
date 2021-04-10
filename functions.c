@@ -163,6 +163,26 @@ void remix(DATA *myMusic, int dimension) {
     }
 
 }
+void recommended(DATA *myMusic, int dimension){
+
+}
+int int_cmp(const void*p1,const void *p2)
+{
+    int *q1=(int*)p1;
+    int *q2=(int*)p2;
+    if(*q1<*q2)
+    {
+        return -1;
+    }
+    else if(*q1>*q2)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
 
 /*
 //void beolvas(ADAT *zene) {
