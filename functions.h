@@ -48,6 +48,7 @@ void playRandom(DATA *myMusic, int lower, int upper);
 void generate(DATA *myMusic, int dimension);
 void remix(DATA *myMusic, int dimension);
 void recommended(DATA *myMusic, int dimension);
+void byMood(DATA *myMusic, int dimension);
 int cmp(const void*,const void *);
 
 #endif //PROJEKT_TTB_FUNCTIONS_H

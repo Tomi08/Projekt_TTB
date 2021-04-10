@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-E:/Adatszerkezetek/Projekt_TTB/functions.c
-functions.h
-E:/Adatszerkezetek/Projekt_TTB/functions.h
-
 E:/Adatszerkezetek/Projekt_TTB/functions.h
 stdio.h
 -
@@ -19,4 +15,8 @@ string.h
 -
 time.h
 -
+
+E:/Adatszerkezetek/Projekt_TTB/main.c
+functions.h
+E:/Adatszerkezetek/Projekt_TTB/functions.h
 

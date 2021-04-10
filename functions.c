@@ -164,8 +164,9 @@ void remix(DATA *myMusic, int dimension) {
     }
 
 }
-void recommended(DATA *myMusic, int dimension){
-    qsort(myMusic,dimension,sizeof(DATA),cmp);
+
+void recommended(DATA *myMusic, int dimension) {
+    qsort(myMusic, dimension, sizeof(DATA), cmp);
     printf("\nToday's best offer\n");
     printf("[%i] ", myMusic[0].ID);
     printf("%s ", myMusic[0].artist_name);
@@ -182,40 +183,44 @@ void recommended(DATA *myMusic, int dimension){
     printf("Views %d", myMusic[0].views);
     printf("\tLikes %d\n", myMusic[0].likes);
 
-//    for(int i=0;i<dimension;++i)
-//    {
-//        printf("[%i] ", myMusic[i].ID);
-//        printf("%s ", myMusic[i].artist_name);
-//        printf("%s ", myMusic[i].track_name);
-//        printf("%s ", myMusic[i].album_name);
-//
-//        printf(" [%d", myMusic[i].length.hour);
-//        printf(":%d", myMusic[i].length.minute);
-//        printf(":%d] ", myMusic[i].length.sec);
-//
-//        printf(" [%d", myMusic[i].realase_date.year);
-//        printf("-%d", myMusic[i].realase_date.month);
-//        printf("-%d]\n\n", myMusic[i].realase_date.day);
-//        printf("\tViews %d", myMusic[i].views);
-//        printf("\tLikes %d\n", myMusic[i].likes);
-//
-//    }
 }
-int cmp(const void *p1,const void *p2)
-{
-    const DATA *q1=(const DATA *)p1;
-    const DATA *q2=(const DATA *)p2;
-    if(q2->likes<q1->likes)
-    {
+
+void byMood(DATA *myMusic, int dimension) {
+    char mood[10];int x;
+//    printf("Type in one from the available moods(Happy,Sad,Energetic,Spicy,Chill)\n");
+//    fgets(mood, sizeof mood, stdin);
+//    printf("%s",mood);
+    printf("Choose one from the available moods (1)Happy, (2)Sad, Energetic(3),Spicy(4),Chill(5)\n");
+    scanf("%i",&x);
+    if(x==1)strcpy(mood,"Happy");
+    else if(x==2)strcpy(mood,"Sad");
+    else if(x==3)strcpy(mood,"Energetic");
+    else if(x==4)strcpy(mood,"Spicy");
+    else if(x==5)strcpy(mood,"Chill");
+    printf("By the selected mood here is the list of the music by your mood: \n");
+    for (int i = 0; i < dimension; ++i) {
+        if (strcmp(myMusic[i].mood, mood)==0) {
+            printf("%s ", myMusic[i].artist_name);
+            printf("%s ", myMusic[i].track_name);
+            printf(" [%d", myMusic[i].length.hour);
+            printf(":%d", myMusic[i].length.minute);
+            printf(":%d] ", myMusic[i].length.sec);
+            printf("Mood %s \n", myMusic[i].mood);
+        }
+
+    }
+
+}
+
+int cmp(const void *p1, const void *p2) {
+    const DATA *q1 = (const DATA *) p1;
+    const DATA *q2 = (const DATA *) p2;
+    if (q2->likes < q1->likes) {
         return -1;
-    }
-    else if(q1->likes<q2->likes)
-    {
+    } else if (q1->likes < q2->likes) {
         return 1;
-    }
-    else
-    {
-        return (q1->views<q2->views)-(q2->views<q1->views);
+    } else {
+        return (q1->views < q2->views) - (q2->views < q1->views);
     }
 }
 
