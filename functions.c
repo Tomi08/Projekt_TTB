@@ -78,7 +78,7 @@ void writeOut(DATA *myMusic, int dimension) {
         printf("\tLikes %d", myMusic[i].likes);
         printf("\tDislikes %d ", myMusic[i].dislikes);
         printf("\tMood %s ", myMusic[i].mood);
-        printf("\tStyle %s \n", myMusic[i].style);
+        printf("\tStyle %s \n\n", myMusic[i].style);
 
     }
 }
@@ -87,6 +87,7 @@ void playRandom(DATA *myMusic, int lower, int upper) {
     srand(time(0));
     int a;
     a = (rand() % (upper - lower + 1)) + lower;
+    printf("The random music which you asked: \n");
     printf("[%i] ", myMusic[a].ID);
     printf("%s ", myMusic[a].artist_name);
     printf("%s ", myMusic[a].track_name);
@@ -139,7 +140,7 @@ void remix(DATA *myMusic, int dimension) {
     //int j = 0;
     char remix[100];
     char needle[10] = "Remix";
-    printf("\n\tRemixes: \n");
+    printf("\nRemixes: \n");
     for (int i = 0; i < dimension; ++i) {
         if (strstr(myMusic[i].track_name, needle) != 0) {
             //snprintf(myMusic[i].remixes, sizeof(myMusic[i].remixes), "%s %s %s ", myMusic[i].artist_name,myMusic[i].track_name, myMusic[i].album_name);
@@ -178,7 +179,7 @@ void recommended(DATA *myMusic, int dimension){
     printf(" [%d", myMusic[0].realase_date.year);
     printf("-%d", myMusic[0].realase_date.month);
     printf("-%d]\n", myMusic[0].realase_date.day);
-    printf("\tViews %d", myMusic[0].views);
+    printf("Views %d", myMusic[0].views);
     printf("\tLikes %d\n", myMusic[0].likes);
 
 //    for(int i=0;i<dimension;++i)
