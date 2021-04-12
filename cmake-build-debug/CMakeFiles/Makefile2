@@ -54,19 +54,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "D:\Egyetem\Adatszerkezetek\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "D:\Egyetem\Adatszerkezetek\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -E rm -f
+RM = "C:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\Egyetem\Adatszerkezetek\Projekt_TTB
+CMAKE_SOURCE_DIR = E:\Adatszerkezetek\Projekt_TTB
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\Egyetem\Adatszerkezetek\Projekt_TTB\cmake-build-debug
+CMAKE_BINARY_DIR = E:\Adatszerkezetek\Projekt_TTB\cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -93,14 +93,14 @@ clean: CMakeFiles/Projekt_TTB.dir/clean
 CMakeFiles/Projekt_TTB.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Projekt_TTB.dir\build.make CMakeFiles/Projekt_TTB.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Projekt_TTB.dir\build.make CMakeFiles/Projekt_TTB.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\Egyetem\Adatszerkezetek\Projekt_TTB\cmake-build-debug\CMakeFiles --progress-num=1,2,3 "Built target Projekt_TTB"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=E:\Adatszerkezetek\Projekt_TTB\cmake-build-debug\CMakeFiles --progress-num=1,2,3 "Built target Projekt_TTB"
 .PHONY : CMakeFiles/Projekt_TTB.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Projekt_TTB.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Egyetem\Adatszerkezetek\Projekt_TTB\cmake-build-debug\CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start E:\Adatszerkezetek\Projekt_TTB\cmake-build-debug\CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/Projekt_TTB.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Egyetem\Adatszerkezetek\Projekt_TTB\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start E:\Adatszerkezetek\Projekt_TTB\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/Projekt_TTB.dir/rule
 
 # Convenience name for target.
