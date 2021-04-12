@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-D:/Egyetem/Adatszerkezetek/Projekt_TTB/functions.c
-functions.h
-D:/Egyetem/Adatszerkezetek/Projekt_TTB/functions.h
-
 D:/Egyetem/Adatszerkezetek/Projekt_TTB/functions.h
 stdio.h
 -
@@ -17,4 +13,10 @@ stdlib.h
 -
 string.h
 -
+time.h
+-
+
+D:/Egyetem/Adatszerkezetek/Projekt_TTB/main.c
+functions.h
+D:/Egyetem/Adatszerkezetek/Projekt_TTB/functions.h
 
