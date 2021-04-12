@@ -8,14 +8,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <time.h>
-
-//#include<windows.h>
-
-#define UNDEFINE -1
-#define SUCCESS 0
-#define MAX 2047483640
-#define WORD 20
 
 typedef struct TIME {
     int hour;
@@ -38,7 +30,6 @@ typedef struct DATA {
 
     int views;
     int likes;
-    int dislikes;
     int ID;
 
     char *remixes;
@@ -46,29 +37,8 @@ typedef struct DATA {
     char *style;
 }DATA;
 
-typedef struct vector {
-    DATA *items;
-    int size;
-    int count;
-}vector;
-
 DATA *create(int capacity);
 DATA *readIn(const char *fname, int *dimension);
 void writeOut(DATA *myMusic, int dimension);
-int freeMyMusic(DATA *myMusic, int dimension);
-
-vector *vector_init();
-int vectorResize(vector *v, int size);
-int vectorAdd(vector *v, DATA *item);
-int vectorDelete(vector *v, int index);
-int freeVec(vector *v);
-
-int returnRandom(int lower, int upper);
-void playRandom(DATA *myMusic, int dimension);
-void generate(DATA *myMusic, int dimension);
-void remix(DATA *myMusic, int dimension);
-void recommended(DATA *myMusic, int dimension);
-void byMood(DATA *myMusic, int dimension);
-int cmp(const void*,const void *);
 
 #endif //PROJEKT_TTB_FUNCTIONS_H
