@@ -12,7 +12,7 @@
 
 #define UNDEFINE -1
 #define SUCCESS 0
-#define MAX 2047483640
+#define MAX 10000000
 #define WORD 20
 
 typedef struct TIME {
@@ -65,6 +65,8 @@ int vectorAdd(vector *v, DATA *item);
 
 int vectorDelete(vector *v, int index);
 
+//int playlistMenu(DATA *myMusic,vector *myPlaylist);
+
 int freeVec(vector *v);
 
 int returnRandom(int lower, int upper);
@@ -76,6 +78,10 @@ void generate(DATA *myMusic, int dimension);
 void remix(DATA *myMusic, int dimension);
 
 void recommended(DATA *myMusic, int dimension);
+
+void dts(DATA *myMusic, int dimension);
+
+void wts(DATA *myMusic, int dimension);
 
 void byMood(DATA *myMusic, int dimension);
 

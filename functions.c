@@ -72,8 +72,12 @@ void writeOut(DATA *myMusic, int dimension) {
         printf(" [%d", myMusic[i].realase_date.year);
         printf("-%d", myMusic[i].realase_date.month);
         printf("-%d]\n", myMusic[i].realase_date.day);
+
+
     }
 }
+
+//
 
 int freeVec(vector *v) {
     int status = UNDEFINE;
@@ -291,8 +295,8 @@ int comparator(const void *p1, const void *p2) {
     const DATA *q1 = (const DATA *) p1;
     const DATA *q2 = (const DATA *) p2;
     if (q2->likes > q1->likes) {
-        return -1;
-    } else return 1;
+        return 1;
+    } else return -1;
 }
 
 void byLikes(DATA *myMusic, int dimension) {
@@ -320,8 +324,8 @@ int comparator2(const void *p1, const void *p2) {
     const DATA *q1 = (const DATA *) p1;
     const DATA *q2 = (const DATA *) p2;
     if (q2->views > q1->views) {
-        return -1;
-    } else return 1;
+        return 1;
+    } else return -1;
 }
 
 void byViews(DATA *myMusic, int dimension) {
@@ -344,5 +348,63 @@ void byViews(DATA *myMusic, int dimension) {
         printf("\tLikes %d\n", myMusic[i].likes);
     }
 }
+void dts(DATA *myMusic, int dimension){
+    qsort(myMusic, dimension, sizeof(DATA), cmp);
+    printf("\nDaily top 50\n");
+    for (int i=0;i<dimension/2;++i) {
+        printf("[%i] ", myMusic[i].ID);
+        printf("%s ", myMusic[i].artist_name);
+        printf("%s ", myMusic[i].track_name);
+        printf("%s ", myMusic[i].album_name);
+
+        printf(" [%d", myMusic[i].length.hour);
+        printf(":%d", myMusic[i].length.minute);
+        printf(":%d] ", myMusic[i].length.sec);
+
+        printf(" [%d", myMusic[i].realase_date.year);
+        printf("-%d", myMusic[i].realase_date.month);
+        printf("-%d]\n", myMusic[i].realase_date.day);
+        printf("Views %d", myMusic[i].views);
+        printf("\tLikes %d\n", myMusic[i].likes);
+    }
 
 
+}
+void wts(DATA *myMusic, int dimension){
+
+
+
+}
+
+//int playlistMenu(DATA *myMusic, vector *myPlaylist) {
+//    int o, id, nr;
+//    printf("Choose one from the following options: \n");
+//    printf("(1)Your songs \n");
+//    printf("(2)Add song \n");
+//    printf("(3)Remove song \n");
+//    printf("(4)Back \n");
+//    scanf("%i", &o);
+//    do {
+//        switch (0) {
+//            case (1):
+//                //if (myPlaylist->items == 0) printf("Your own playlist is empty");
+//                printf("~MY PLAYLIST~\n");
+//                writeOut(myPlaylist->items, myPlaylist->count);
+//
+//                break;
+//            case (2):
+//                printf("Type the ID of the song which you want to add to your list (1-99)");
+//                scanf("%i", &id);
+//                vectorAdd(myPlaylist, &myMusic[id]);
+//
+//                break;
+//            case (3):
+//                printf("Type the ID of the song which you want to remove from your list ");
+//                scanf("%i", &nr);
+//                vectorDelete(myPlaylist, nr);
+//
+//                break;
+//        }
+//    } while (0 != 4);
+//
+//}

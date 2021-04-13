@@ -1,8 +1,10 @@
 #include "functions.h"
 
 int main() {
-    int n, a;
+    srand(time(0));
+    int n, a, b, id, nr;
     DATA *myMusic = readIn("input.csv", &n);
+    vector *myPlaylist = vector_init();
     //printf("-----%s-----", myMusic[0].artist_name);
 //    writeOut(myMusic, n);
 //    playRandom(myMusic, 0, 99);
@@ -10,6 +12,7 @@ int main() {
 //    recommended(myMusic,n);
 //    byMood(myMusic,n);
     printf("\t\tWelcome to your personal music assistant!\n\t\t\tHow can I help you? ");
+    main:
     do {
         printf("\n");
         printf("(1)Available music list");
@@ -22,7 +25,7 @@ int main() {
         printf("\n(8)Weekly top songs");
         printf("\n(9)Sorted by likes");
         printf("\n(10)Sorted by views");
-        printf("\n\t\t\t(11) EXIT :(");
+        printf("\n\t\t\t(11) EXIT :(  \n" );
         scanf("%i", &a);
 
         switch (a) {
@@ -39,25 +42,58 @@ int main() {
                 byMood(myMusic, n);
                 break;
             case (5):
+            menu1:
+                printf("Choose one from the following options: \n");
+                printf("(1)Your songs \n");
+                printf("(2)Add song \n");
+                printf("(3)Remove song \n");
+                printf("(4)Back \n");
+                scanf("%i", &b);
+                if (b == 1) {
+                    printf("~MY PLAYLIST~\n");
+                    writeOut(myPlaylist->items, myPlaylist->count);
+                    goto menu1;
+                }
+                if (b == 2) {
+                    printf("Type the ID of the song which you want to add to your list (0-99)");
+                    scanf("%i", &id);
+                    vectorAdd(myPlaylist, &myMusic[id]);
+                    goto menu1;
+                }
+                if (b == 3) {
+                    printf("Type the ID of the song which you want to remove from your list ");
+                    scanf("%i", &nr);
+                    vectorDelete(myPlaylist, nr);
+                    goto menu1;
+                }
+                if (b == 4)goto main;
+
+
                 break;
             case (6):
                 remix(myMusic, n);
                 break;
             case (7):
+                dts(myMusic, n);
                 break;
             case (8):
+                wts(myMusic, n);
                 break;
             case (9):
+                byLikes(myMusic, n);
                 break;
             case (10):
+                byViews(myMusic, n);
                 break;
 
         }
     } while (a != 11);
+    freeVec(myPlaylist);
+    freeMyMusic(myMusic, n);
     return 0;
 }
-//#include "functions.h"
-//
+
+
 //int main() {
 //    srand(time(0));
 //
@@ -67,7 +103,7 @@ int main() {
 //    writeOut(myMusic,n);
 //
 //    vector *myPlaylist = vector_init();
-//    printf("~%d\n", vectorAdd(myPlaylist,&myMusic[0]));
+//  printf("~%d\n", vectorAdd(myPlaylist,&myMusic[0]));
 //    printf("~%d\n", vectorAdd(myPlaylist,&myMusic[1]));
 //    printf("~%d\n", vectorAdd(myPlaylist,&myMusic[2]));
 //    printf("~%d\n", vectorAdd(myPlaylist,&myMusic[0]));
@@ -80,8 +116,8 @@ int main() {
 //    printf("~MY PLAYLIST~\n");
 //    writeOut(myPlaylist->items,myPlaylist->count);
 //
-//    //printf("%d \n", myPlaylist->count);
-//    //printf("%s \n", myPlaylist->items[1].artist_name);
+//    printf("%d \n", myPlaylist->count);
+//    printf("%s \n", myPlaylist->items[1].artist_name);
 //
 //    playRandom(myMusic,n);
 //
