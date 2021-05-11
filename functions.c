@@ -1,4 +1,5 @@
 
+#include <unistd.h>
 #include "functions.h"
 
 DATA *create(int dimension) {
@@ -109,11 +110,11 @@ int vectorAdd(vector *v, DATA *item) {
         vectorResize(v, v->size * 2);
         v->items[v->count++] = *item;
         status = SUCCESS;
-        printf("XXX%d %d \n", v->count, v->size);
+        //printf("XXX%d %d \n", v->count, v->size);
     } else {
         v->items[v->count++] = *item;
         status = SUCCESS;
-        printf("%d \n", v->count);
+        //printf("%d \n", v->count);
     }
 
     return status;
@@ -142,7 +143,7 @@ int vectorDelete(vector *v, int index) {
             //v->items[i + 1] = empty;
         }
         v->count--;
-        printf("YYY%d %d \n", v->count, v->size);
+        //printf("YYY%d %d \n", v->count, v->size);
         if ((v->count > 0) && ((v->count) == (v->size / 2))) {
             vectorResize(v, v->size / 2);
         }
@@ -372,6 +373,10 @@ void dts(DATA *myMusic, int dimension){
 }
 void wts(DATA *myMusic, int dimension){
 
+printf("It's under development pls come back later... \n");
+printf("Meanwhile listen to this music\n");
+sleep(3);
+system("explorer https://youtu.be/dQw4w9WgXcQ");
 
 
 }

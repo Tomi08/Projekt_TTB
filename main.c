@@ -43,7 +43,7 @@ int main() {
                 break;
             case (5):
             menu1:
-                printf("Choose one from the following options: \n");
+                printf("\nChoose one from the following options: \n");
                 printf("(1)Your songs \n");
                 printf("(2)Add song \n");
                 printf("(3)Remove song \n");
@@ -51,18 +51,30 @@ int main() {
                 scanf("%i", &b);
                 if (b == 1) {
                     printf("~MY PLAYLIST~\n");
+                    if(myPlaylist->count == 0) {
+                        printf(" ---empty---");
+                        goto menu1;
+                    }
                     writeOut(myPlaylist->items, myPlaylist->count);
                     goto menu1;
                 }
                 if (b == 2) {
-                    printf("Type the ID of the song which you want to add to your list (0-99)");
+                    printf("Type the ID of the song which you want to add to your list (0-99): ");
                     scanf("%i", &id);
+                    if(id < 0 || id > 99) {
+                        printf("Error: try again.");
+                        goto menu1;
+                    }
                     vectorAdd(myPlaylist, &myMusic[id]);
                     goto menu1;
                 }
                 if (b == 3) {
-                    printf("Type the ID of the song which you want to remove from your list ");
+                    printf("Type the ID of the song which you want to remove from your list (0-%d): ", myPlaylist->count - 1);
                     scanf("%i", &nr);
+                    if(nr < 0 || nr > myPlaylist->count - 1) {
+                        printf("Error: try again.");
+                        goto menu1;
+                    }
                     vectorDelete(myPlaylist, nr);
                     goto menu1;
                 }
