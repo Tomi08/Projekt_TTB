@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+E:/Adatszerkezetek/Projekt_TTB/Project_dentist/BST.h
+person.h
+E:/Adatszerkezetek/Projekt_TTB/Project_dentist/person.h
+
+E:/Adatszerkezetek/Projekt_TTB/Project_dentist/main.c
+BST.h
+E:/Adatszerkezetek/Projekt_TTB/Project_dentist/BST.h
+
+E:/Adatszerkezetek/Projekt_TTB/Project_dentist/person.h
+BST.h
+E:/Adatszerkezetek/Projekt_TTB/Project_dentist/BST.h
+stdbool.h
+E:/Adatszerkezetek/Projekt_TTB/Project_dentist/stdbool.h
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+time.h
+-
+unistd.h
+-
+conio.h
+-
+
