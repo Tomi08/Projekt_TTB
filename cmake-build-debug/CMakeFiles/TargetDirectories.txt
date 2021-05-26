@@ -1,3 +1,0 @@
-E:/Adatszerkezetek/Projekt_TTB/cmake-build-debug/CMakeFiles/Projekt_TTB.dir
-E:/Adatszerkezetek/Projekt_TTB/cmake-build-debug/CMakeFiles/edit_cache.dir
-E:/Adatszerkezetek/Projekt_TTB/cmake-build-debug/CMakeFiles/rebuild_cache.dir
