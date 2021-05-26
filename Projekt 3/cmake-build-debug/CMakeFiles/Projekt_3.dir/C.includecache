@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+E:/Adatszerkezetek/Projekt_TTB/Projekt 3/HashTable.c
+HashTable.h
+E:/Adatszerkezetek/Projekt_TTB/Projekt 3/HashTable.h
+
+E:/Adatszerkezetek/Projekt_TTB/Projekt 3/HashTable.h
+stdlib.h
+-
+stdio.h
+-
+string.h
+-
+
